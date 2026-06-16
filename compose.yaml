@@ -1,0 +1,32 @@
+# ================================
+# Docker compose configuration
+# ================================
+
+services:
+  # Dev service
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://alex_bellos:prisma@db:5432/postgres
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    container_name: monitorapp-db
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=alex_bellos
+      - POSTGRES_PASSWORD=prisma
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+
+volumes:
+  postgres_data:
+# TODO: run the docker compose and migrate the prisma db
