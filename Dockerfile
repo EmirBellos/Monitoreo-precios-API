@@ -16,7 +16,7 @@ RUN pnpm i --frozen-lockfile
 # Copy source project code
 COPY . .
 
-# Probably I'll need the typescript compile command before start the project (pnpm dlx tsc)
+# Build the project
 RUN pnpm build
 
 # Run the hello typescript in index.js

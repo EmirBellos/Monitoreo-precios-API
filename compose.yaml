@@ -29,4 +29,3 @@ services:
 
 volumes:
   postgres_data:
-# TODO: run the docker compose and migrate the prisma db

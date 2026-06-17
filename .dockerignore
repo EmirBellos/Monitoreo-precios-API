@@ -1,6 +1,6 @@
 node_modules
 
 .env
-# this shit should be builded in continer
+
 dist
 compose.yaml
