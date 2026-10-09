@@ -5,8 +5,7 @@ console.log(`Hello, ${nameUser}! Welcome to TypeScript.`); */
 
 import express from "express";
 import { config } from "dotenv";
-import { prisma } from "./config/db"
-import { productRoutes} from ""; // create the 'routes' folder
+import productRoutes from "./routes/productRoutes.js";
 
 
 config();
@@ -18,11 +17,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // this is not fully required but it is used to parse url encoded data from forms
 
 // API routes
-app.use('/products', productRoutes);
+app.use("/products", productRoutes());
 
-const PORT: number = 5001;
+const PORT = Number(process.env.PORT ?? 3000);
 app.listen(PORT, () => {
-    console.log('The project is running in port:' + PORT);
+    console.log("The project is running in port:" + PORT);
 });
-
 

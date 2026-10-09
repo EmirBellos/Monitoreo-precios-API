@@ -19,5 +19,6 @@ COPY . .
 # Build the project
 RUN pnpm build
 
-# Run the hello typescript in index.js
-CMD ["node", "dist/index.js"]
+EXPOSE 3000
+
+CMD ["node", "dist/server.js"]
